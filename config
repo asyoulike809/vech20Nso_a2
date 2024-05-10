@@ -5,26 +5,26 @@ Host *
 	PasswordAuthentication no
 
 Host bastionNSO
-	HostName 45.114.123.7
+	HostName 91.123.203.65
 	ForwardAgent yes
 	ControlMaster auto 
 	ControlPath ~/.ssh/ansible-%r@%h:%p
 	ControlPersist yes
 	
 Host HAproxy
-	HostName 45.114.123.149
+	HostName 91.123.203.117
 	ForwardAgent yes
 	ControlMaster auto 
 	ProxyCommand ssh -W %h:%p bastionNSO
 
 Host devA
-	HostName 10.0.1.20
+	HostName 10.0.1.19
 	ProxyCommand ssh -W %h:%p bastionNSO
 
 Host devB
-	HostName 10.0.1.16
+	HostName 10.0.1.28
 	ProxyCommand ssh -W %h:%p bastionNSO
 
 Host devC
-	HostName 10.0.1.21
+	HostName 10.0.1.17
 	ProxyCommand ssh -W %h:%p bastionNSO
